@@ -23,39 +23,92 @@
 #include "SPI.h"
 
 
-/** @brief Transmit and Receive bytes over the SPI Bus and wait till complete
-*
-* This will Send and receive a number of bytes over the SPI Bus
-* It will use the data in pSettings to configure the bus.
-*
-*
-* @author
-*
-* @warning
-*
-*
-* @param pSettings pointer to setup information for the SPI Bus.
-* @param pTxBuffer pointer to a buffer holding the the bytes to transmit.
-* @param pRxBuffer pointer to a buffer were the received bytes will be stored.
-* @param TxCount The number of bytes to send from the TxBuffer
-* @param RxCount The number of bytes to receive and store in RxBuffer
-*
-*
-* @return An error code. Zero means success, anything else is a failure.
-*/
-uint8_t SPI_Read_Write_Blocking(SPI_Settings_t * pSettings,uint8_t  *pTxBuffe, uint8_t  *pRxBuffer, uint16_t BytesToSend, uint16_t BytesToGet)
-{
-   uint8_t Result;
 
-   Result = SPI_Read_Write(pSettings,*pTxBuffer,pRxBuffer,TxCount, RxCount);
+
+/** @brief Transmit and Receive bytes over the SPI Bus
+ *
+ * This will Send and receive a number of bytes over the SPI Bus
+ * It will use the data in pSettings to configure the bus.
+ * This function will use interrupts to complete the transfer
+ * and will return immediately. Use SPI_Complete() to check
+ * if the transfer is complete.
+ *
+ *
+ * @author Aaron Keith
+ *
+ * @warning Do not call this function if a transfer is in progress.
+ * Use SPI_Complete() to check if the transfer is complete.
+ *
+ *
+ * @param pSettings pointer to setup information for the SPI Bus.
+ * @param pTxBuffer pointer to a buffer holding the the bytes to transmit.
+ * @param pRxBuffer pointer to a buffer were the received bytes will be stored.
+ * @param TxCount The number of bytes to send from the TxBuffer
+ * @param RxCount The number of bytes to receive and store in RxBuffer
+ *
+ *
+ * @return An error code. Zero means success, anything else is a failure.
+ */
+unsigned char SPI_Read_Write(SPI_Settings *Settings,unsigned char *TxBuffer, unsigned char *RxBuffer, unsigned short TxCount, unsigned short RxCount)
+{
+  return 0;
+}
+
+/** @brief Check on the status of the SPI transfer
+ *
+ * Calling this function will return the status of the
+ * interrupt transfer.
+ *
+ *
+ * @author Aaron Keith
+ *
+ * @warning
+ *
+ * @param SPI_Bus Which SPI Bus to check.
+ *
+ * @return Zero means Busy. One means complete no error. anything else is a failure.
+ */
+unsigned char  SPI_Complete(SPI_Settings *Settings)
+{
+  return (1);
+}
+
+
+
+
+/** @brief Transmit and Receive bytes over the SPI Bus and wait till complete
+ *
+ * This will Send and receive a number of bytes over the SPI Bus
+ * It will use the data in pSettings to configure the bus.
+ *
+ *
+ * @author Aaron Keith
+ *
+ * @warning
+ *
+ *
+ * @param pSettings pointer to setup information for the SPI Bus.
+ * @param pTxBuffer pointer to a buffer holding the the bytes to transmit.
+ * @param pRxBuffer pointer to a buffer were the received bytes will be stored.
+ * @param TxCount The number of bytes to send from the TxBuffer
+ * @param RxCount The number of bytes to receive and store in RxBuffer
+ *
+ *
+ * @return An error code. Zero means success, anything else is a failure.
+ */
+unsigned char SPI_Read_Write_Blocking(SPI_Settings *Settings,unsigned char  *TxBuffer, unsigned char  *RxBuffer, unsigned short TxCount, unsigned short RxCount)
+{
+   unsigned char Result;
+
+   Result = SPI_Read_Write(Settings,TxBuffer,RxBuffer,TxCount, RxCount);
    if (Result)
    {
       return (Result);
    }
 
-   while (SPI_Complete(pSettings->SPI_Bus) == 0);  // Wait for transfer to complete
+   while (SPI_Complete(Settings) == 0);  // Wait for transfer to complete
 
-   return (SPI_Complete(pSettings->SPI_Bus));
+   return (SPI_Complete(Settings));
 
 }
 

@@ -51,7 +51,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src/inc/defaultSecondaryRPMISR.c|src/code/MissingTeeth-Either-XminusY.c|Test/fuelAndIgnitionCalcs_TestRunner.c|Test/fuelAndIgnitionCalcs_Test.c|src/fuelAndIgnitionCalcs.c|src/MissingTeeth-Crank-8minus1.c|src/MissingTeeth-Either-XminusY.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="src/SPI.c|src/inc/defaultSecondaryRPMISR.c|src/code/MissingTeeth-Either-XminusY.c|Test/fuelAndIgnitionCalcs_TestRunner.c|Test/fuelAndIgnitionCalcs_Test.c|src/fuelAndIgnitionCalcs.c|src/MissingTeeth-Crank-8minus1.c|src/MissingTeeth-Either-XminusY.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -99,7 +99,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="src/inc/defaultSecondaryRPMISR.c|src/code/MissingTeeth-Either-XminusY.c|Test/fuelAndIgnitionCalcs_TestRunner.c|Test/fuelAndIgnitionCalcs_Test.c|src/fuelAndIgnitionCalcs.c|src/MissingTeeth-Crank-8minus1.c|src/MissingTeeth-Either-XminusY.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="src/SPI.c|src/inc/defaultSecondaryRPMISR.c|src/code/MissingTeeth-Either-XminusY.c|Test/fuelAndIgnitionCalcs_TestRunner.c|Test/fuelAndIgnitionCalcs_Test.c|src/fuelAndIgnitionCalcs.c|src/MissingTeeth-Crank-8minus1.c|src/MissingTeeth-Either-XminusY.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

@@ -28,7 +28,7 @@
 
 
 
-//#include "../src/MissingTeeth-Crank-8minus1.c"
+#include "../src/SPI.c"
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -50,6 +50,7 @@ TEST_TEAR_DOWN(SPI)  // This is run after the test has ended
 
 TEST(SPI,Init)  // This is the Test
 {
+
 
 
 }
